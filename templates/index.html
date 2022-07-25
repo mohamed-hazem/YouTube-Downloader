@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+
+        <title>Youtube Downloader</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h2 class="h">Youtube Downloader</h2>
+
+            <div class="input">
+                <input type="text" name="url" id="url" placeholder="YouTube video URL">
+                <button class="paste" id="paste" onclick="paste()"><i class="fa-solid fa-paste"></i></button>
+
+                <button class="get" id="get">Get Video</button>
+            </div>
+        </div>
+
+        <div class="lds-hourglass" id="loader"></div>
+
+        <div class="dl", id="dl-div">
+            
+            <!-- 270*150 -->
+            <div class="info">
+                <div class="img-div">
+                    <img src="" alt="" width="270" height="150">
+                    <i class="time" id="time"></i>
+                </div>
+                <div>
+                    <p class="title"></p>
+
+                    <a href="" id="dl-url" style="display: none"></a>
+
+                    <div class="quality" id="quality"></div>
+                </div>
+            </div>
+
+            <button class="dl-btn" id="dl-btn">Download</button>
+
+            <button class="restart" onclick="restart()"><i class="fa-solid fa-rotate-left"></i></button>
+        </div>
+        
+        
+    </body>
+</html>

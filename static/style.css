@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+.container, .dl {
+    width: fit-content;
+    margin: 2.5% auto;
+    background-color: #FFF;
+    border-radius: 5px;
+    box-shadow: 0 5px 25px rgb(1 1 1 / 15%);
+    padding: 2em;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 2em;
+}
+
+.container .h, .dl .title {
+    margin: 0.75em;
+    letter-spacing: 2px;
+    color: #333;
+}
+
+.container input[type=text] {
+    margin: 1em 0.25em;
+    padding: 0.35em;
+    width: 26em;
+    outline: none;
+    border: 1px solid #DDDDDD;
+    color: #333;
+    font-size: 1em;
+    transition: 0.3s all ease-in-out;
+}
+
+.container input[type=text]:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.container .get {
+    display: block;
+    margin: 1em auto;
+    padding: 0.75em 2.25em;
+    color: #f8f9fa;
+    background-color: #17a2b8;
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.container .paste {
+    padding: 0.2em;
+    font-size: 1.2em;
+    background-color: inherit;
+    color: #17a2b8;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.container button:hover {
+    transform: scale(1.1);
+}
+
+/* ============================================== */
+
+.dl {
+    display: none;
+    transition: 0.3s ease;
+    min-width: 35em;
+}
+
+.dl .info {
+    display: flex;
+}
+
+.dl .info .title {
+    max-width: 20em;
+    letter-spacing: 0;
+}
+
+.img-div {
+    position: relative;
+}
+
+.dl .time {
+    letter-spacing: 1px;
+    font-size: 16px;
+    position: absolute;
+    top: 61%;
+    right: 1.5%;
+    color: #f8f9fa;    
+}
+
+.dl .quality {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 20em;
+    padding: 0.25em;
+    margin: 1em;
+    margin-right: 0;
+}
+
+.dl .quality .res {
+    margin: 10px 8px;
+    padding: 7px;
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgb(1 1 1 / 15%);
+    font-size: 0.9em;
+    font-weight: 450;
+    min-width: 5.5em;
+    transition: 0.3s ease;
+}
+
+.sup {font-size: 0.45em;}
+.selected {
+    background-color: #dc3545;
+    color: #f8f9fa;
+}
+
+.dl .quality .res:hover {
+    transform: scale(1.1);
+}
+
+.dl .dl-btn {
+    display: block;
+    margin: 1.5em auto 0 auto;
+    padding: 0.75em 2.25em;
+    color: #f8f9fa;
+    background-color: #28a745;
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.dl button:hover {
+    transform: scale(1.1);
+}
+
+.dl .restart {
+    float: right;
+    margin: -0.5em;
+    padding: 0.2em;
+    font-size: 1.1em;
+    background-color: transparent;
+    color: rgb(84, 84, 84);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* ============================================== */
+.lds-hourglass {
+    display: none;
+    justify-content: center;
+    margin: 0 calc(50% - 40px);
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    z-index: 999;
+    opacity: 0.15;
+}
+.lds-hourglass:after {
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    margin: 8px;
+    box-sizing: border-box;
+    border: 64px solid #FFF;
+    border-color: darkblue transparent darkblue transparent;
+    animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+100% {
+    transform: rotate(1800deg);
+}
+}
