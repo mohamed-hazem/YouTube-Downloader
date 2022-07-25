@@ -100,15 +100,17 @@ body {
 
 .img-div {
     position: relative;
+    height: fit-content;
 }
 
 .dl .time {
     letter-spacing: 1px;
     font-size: 16px;
     position: absolute;
-    top: 61%;
+    top: 82%;
     right: 1.5%;
-    color: #f8f9fa;    
+    color: #f8f9fa;
+    font-weight: 450;
 }
 
 .dl .quality {

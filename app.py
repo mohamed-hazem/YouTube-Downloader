@@ -32,5 +32,5 @@ def get_url_page():
     else:
         redirect('/')
 
-if (__name__ == "__main__"):
+if (__name__ == "__main__"): 
     app.run(debug=True)

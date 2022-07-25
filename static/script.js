@@ -32,7 +32,6 @@ function show(info) {
     img.src = info["thumbnail"]
     img.alt = info["title"]
     title.innerText = info["title"]
-    console.log(getVideoTime(info["length"]))
     time.innerText = getVideoTime(info["length"])
 
     let qualities = info["quality"]
