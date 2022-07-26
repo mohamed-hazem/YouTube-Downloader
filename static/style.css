@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
 
 * {
     font-family: 'Poppins', sans-serif;
@@ -15,8 +16,8 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  background-color: #e2e8ef52;
 }
-
 
 .container, .dl {
     width: fit-content;
@@ -31,9 +32,10 @@ body {
 }
 
 .container .h, .dl .title {
+    font-family: 'Poppins', 'Droid Arabic Kufi', 'sans-serif';
     margin: 0.75em;
     letter-spacing: 2px;
-    color: #333;
+    color: #343a40;
 }
 
 .container input[type=text] {
@@ -97,6 +99,7 @@ body {
 
 .dl .info {
     display: flex;
+    align-items: center;
 }
 
 .dl .info .title {
@@ -112,19 +115,23 @@ body {
 
 .img-div img {
     object-fit: cover;
+    width: 18.5em;
+    height: 10.41625em;
 }
 
 .dl .time {
     position: absolute;
-    top: 82%;
-    right: 1.5%;
+    bottom: 4%;
+    right: 0;
     background-color: #000;
     color: #f8f9fa;
-    padding: 2px;
-    font-size: 14px;
-    font-weight: 500;
+    padding: 3px;
+    font-size: 11px;
+    font-weight: bold;
     letter-spacing: 0.5px;
     font-family: Arial;
+    min-width: 20px;
+    border-radius: 3px;
 }
 
 .dl .quality {
@@ -214,15 +221,17 @@ body {
     animation: lds-hourglass 1.2s infinite;
 }
 @keyframes lds-hourglass {
-0% {
-    transform: rotate(0);
-    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    0% {
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    50% {
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    100% {
+        transform: rotate(1800deg);
+    }
 }
-50% {
-    transform: rotate(900deg);
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-100% {
-    transform: rotate(1800deg);
-}
-}
+
+/* ============================================== */
