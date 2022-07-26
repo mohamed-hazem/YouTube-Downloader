@@ -9,7 +9,9 @@ let time = document.querySelector("#time")
 let dlDiv = document.querySelector("#dl-div")
 let select = document.querySelector("#quality")
 let dlBtn = document.querySelector("#dl-btn")
+let dlLink = document.querySelector("#dl-link")
 
+let errorSpan = document.querySelector("#error")
 let loader = document.querySelector("#loader")
 
 // initial commands
@@ -22,10 +24,13 @@ function getVideo(url) {
     fetch("/get_video?url="+url)
     .then(response => response.json())
     .then(data => show(data))
+    .catch(_ => error())
 }
 
 // show data
 function show(info) {
+
+    error(showError=false)
 
     loader.style.display = "none"
     dlDiv.style.display = "block"
@@ -64,7 +69,7 @@ function show(info) {
     })
 }
 
-getVideoBtn.onclick = function() {
+getVideoBtn.onclick = () => {
     this.disabled = true
     url = urlInput.value
     getVideo(url)
@@ -76,12 +81,15 @@ function getUrl(url, quality) {
 
     fetch("/get_url?url="+url+"&quality="+quality)
     .then(response => response.json())
-    .then(data => redirect(data["url"]))
+    .then(data => redirect(data["url"], quality))
 }
 
-function redirect(url) {
+function redirect(url, quality) {
+    let ext = (quality == "MP3") ? ".mp3" : ".mp4"
     loader.style.display = "none"
-    window.open(url, '_blank')
+    dlLink.href = url
+    dlLink.download = title.innerText + ext
+    dlLink.click()
 }
 
 dlBtn.onclick = () => {
@@ -93,6 +101,7 @@ dlBtn.onclick = () => {
 
 // restart
 function restart() {
+    error(showError=false)
     dlDiv.style.display = "none"
     removeAllChildNodes(select)
     urlInput.value = ""
@@ -104,6 +113,17 @@ async function paste() {
     let text = await navigator.clipboard.readText()
     urlInput.value = text
     getVideoBtn.click()
+}
+
+// show & hide error
+function error(showError=true) {
+    if (showError) {
+        errorSpan.style.display = "block"
+        loader.style.display = "none"
+    } 
+    else {
+        errorSpan.style.display = "none"
+    }
 }
 
 // select quality functions
@@ -135,17 +155,24 @@ function removeAllChildNodes(parent) {
     }
 }
 
+function zfill(num) {
+    if (num < 10) {
+        return "0" + num
+    }
+    return num
+}
+
 function getVideoTime(duration) {
     duration = parseInt(duration)
 
     if (duration < 60) {
-        return "00:" + duration
+        return "00:" + zfill(duration)
     }
     else if (duration > 60 && duration < 3600) {
         min = ~~(duration / 60)
         sec = duration % 60
 
-        return min + ":" + sec
+        return zfill(min) + ":" + zfill(sec)
     }
     else {
         h = ~~(duration / 3600)
@@ -153,6 +180,6 @@ function getVideoTime(duration) {
         min = ~~(rest / 60)
         sec = rest % 60
 
-        return h + ":" + min + ":" + sec
+        return zfill(h) + ":" + zfill(min) + ":" + zfill(sec)
     }
 }

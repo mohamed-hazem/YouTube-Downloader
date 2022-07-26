@@ -22,6 +22,8 @@
                 <input type="text" name="url" id="url" placeholder="YouTube video URL">
                 <button class="paste" id="paste" onclick="paste()"><i class="fa-solid fa-paste"></i></button>
 
+                <span class="error" id="error">URL is not valid</span>
+
                 <button class="get" id="get">Get Video</button>
             </div>
         </div>
@@ -39,12 +41,11 @@
                 <div>
                     <p class="title"></p>
 
-                    <a href="" id="dl-url" style="display: none"></a>
-
                     <div class="quality" id="quality"></div>
                 </div>
             </div>
-
+            
+            <a href="" download="" id="dl-link" style="display: none" _blank></a>
             <button class="dl-btn" id="dl-btn">Download</button>
 
             <button class="restart" onclick="restart()"><i class="fa-solid fa-rotate-left"></i></button>

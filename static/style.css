@@ -81,6 +81,12 @@ body {
     transform: scale(1.1);
 }
 
+.container .error {
+    display: none;
+    color: #dc3545;
+    font-size: 0.85em;
+}
+
 /* ============================================== */
 
 .dl {
@@ -96,6 +102,7 @@ body {
 .dl .info .title {
     max-width: 20em;
     letter-spacing: 0;
+    font-weight: 500;
 }
 
 .img-div {
@@ -103,14 +110,21 @@ body {
     height: fit-content;
 }
 
+.img-div img {
+    object-fit: cover;
+}
+
 .dl .time {
-    letter-spacing: 1px;
-    font-size: 16px;
     position: absolute;
     top: 82%;
     right: 1.5%;
+    background-color: #000;
     color: #f8f9fa;
-    font-weight: 450;
+    padding: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-family: Arial;
 }
 
 .dl .quality {
